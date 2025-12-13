@@ -66,6 +66,6 @@ plan:
         - emulated-contract-publish:
             contract-name: biometric-wallet
             emulated-sender: ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM
-            path: contracts/biometric-wallet.clar
+            path: "contracts\\biometric-wallet.clar"
             clarity-version: 4
       epoch: "3.3"

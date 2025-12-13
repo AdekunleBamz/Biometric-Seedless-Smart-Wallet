@@ -9,7 +9,6 @@ cache_dir = "./.cache"
 [contracts.biometric-wallet]
 path = "contracts/biometric-wallet.clar"
 clarity_version = 4
-epoch = "latest"
 
 [repl.analysis]
 passes = ["check_checker"]
