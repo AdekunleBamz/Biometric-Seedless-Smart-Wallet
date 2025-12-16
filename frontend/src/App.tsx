@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import ConnectWallet from './components/ConnectWallet'
+import InitializeWallet from './components/InitializeWallet'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -21,6 +22,7 @@ function App() {
 
       <div className="card">
         <ConnectWallet />
+        <InitializeWallet />
       </div>
 
       <div className="card">
