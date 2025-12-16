@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { AppConfig, UserSession, showConnect } from '@stacks/connect';
+import { showConnect } from '@stacks/connect';
+import { userSession } from '../utils/auth';
 
 // Configure the app with permissions
-const appConfig = new AppConfig(['store_write', 'publish_data']);
+// Removed local appConfig
 // Create a UserSession object
-export const userSession = new UserSession({ appConfig });
+// Removed local userSession
 
 const ConnectWallet = () => {
     const [userData, setUserData] = useState<any>(null);
