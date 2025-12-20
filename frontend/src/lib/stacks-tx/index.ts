@@ -1,1 +1,1 @@
-// Stacks Transactions Library
+import { StacksTestnet, StacksMainnet } from '@stacks/network';
