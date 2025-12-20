@@ -1,4 +1,4 @@
-import { ChainhooksClient } from '@hirosystems/chainhooks-client';
+
 
 export type ObserverConfig = {
     name: string;
