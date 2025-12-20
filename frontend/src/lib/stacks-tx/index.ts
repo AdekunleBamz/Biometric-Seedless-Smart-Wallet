@@ -11,3 +11,7 @@ import {
 export const getNetwork = (isMainnet: boolean = false) => {
     return isMainnet ? STACKS_MAINNET : STACKS_TESTNET;
 };
+
+export const createStxPostCondition = (address: string, amount: bigint) => {
+    return Pc.principal(address).willSendEq(amount).ustx();
+};
