@@ -6,6 +6,7 @@ export const TransactionSender = () => {
     return (
         <div>
             <h3>Send Transaction</h3>
+            <button>Send</button>
         </div>
     );
 };
