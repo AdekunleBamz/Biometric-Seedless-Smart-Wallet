@@ -71,3 +71,11 @@ export default defineConfig([
   },
 ])
 ```
+
+## Stacks & Chainhooks
+
+This project integrates:
+- `@stacks/connect` for authentication (see `src/lib/stacks-auth`).
+- `@stacks/transactions` for transaction signing (see `src/lib/stacks-tx`).
+- `@hirosystems/chainhooks-client` for event listening (see `src/lib/chainhooks`).
+
