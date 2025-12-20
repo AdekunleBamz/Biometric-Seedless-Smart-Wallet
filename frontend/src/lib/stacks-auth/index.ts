@@ -17,3 +17,7 @@ export function authenticate() {
         userSession,
     });
 }
+
+export function getUserData() {
+    return userSession.loadUserData();
+}
