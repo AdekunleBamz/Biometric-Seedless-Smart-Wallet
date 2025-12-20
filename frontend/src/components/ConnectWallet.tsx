@@ -10,18 +10,7 @@ const ConnectWallet = () => {
     const [userData, setUserData] = useState<any>(null);
 
     const handleConnect = () => {
-        showConnect({
-            appDetails: {
-                name: 'Biometric Smart Wallet',
-                icon: window.location.origin + '/vite.svg',
-            },
-            redirectTo: '/',
-            onFinish: () => {
-                const userData = userSession.loadUserData();
-                setUserData(userData);
-            },
-            userSession: userSession,
-        });
+        authenticate();
     };
 
     const handleSignOut = () => {
