@@ -24,6 +24,7 @@ function App() {
       <div className="card">
         <ConnectWallet />
         <InitializeWallet />
+        <TransactionSender />
       </div>
 
       <div className="card">
