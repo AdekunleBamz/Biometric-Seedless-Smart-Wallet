@@ -1,1 +1,1 @@
-// Initial file for Stacks Authentication
+import { AppConfig } from '@stacks/connect';
