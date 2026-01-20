@@ -1,7 +1,7 @@
 {
-  "name": "Biometric Seedless Smart Wallet-tests",
+  "name": "biometric-seedless-smart-wallet",
   "version": "1.0.0",
-  "description": "Run unit tests on this project.",
+  "description": "A production-ready Clarity smart contract enabling biometric authentication for blockchain transactions without seed phrases",
   "type": "module",
   "private": true,
   "scripts": {
@@ -9,7 +9,7 @@
     "test:report": "vitest run -- --coverage --costs",
     "test:watch": "chokidar \"tests/**/*.ts\" \"contracts/**/*.clar\" -c \"npm run test:report\""
   },
-  "author": "",
+  "author": "AdekunleBamz",
   "license": "ISC",
   "dependencies": {
     "@hirosystems/clarinet-sdk": "^3.6.0",
@@ -25,5 +25,9 @@
     "vite": "^5.4.21",
     "vitest": "^1.6.1",
     "vitest-environment-clarinet": "^3.0.2"
-  }
+  },
+  "repository": "https://github.com/AdekunleBamz/Biometric-Seedless-Smart-Wallet",
+  "homepage": "https://github.com/AdekunleBamz/Biometric-Seedless-Smart-Wallet#readme",
+  "bugs": "https://github.com/AdekunleBamz/Biometric-Seedless-Smart-Wallet/issues",
+  "keywords": "clarity,smart-contract,blockchain,biometric,wallet,seedless,authentication,secp256r1,stacks"
 }
