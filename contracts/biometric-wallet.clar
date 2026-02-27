@@ -21,6 +21,9 @@
 ;; Initialization flag to ensure wallet is set up
 (define-data-var initialized bool false)
 
+;; Contract owner for admin functions (set at deployment)
+(define-data-var contract-owner principal tx-sender)
+
 ;; Error Constants
 (define-constant ERR-INVALID-SIGNATURE (err u100))
 (define-constant ERR-INVALID-NONCE (err u101))
@@ -28,6 +31,7 @@
 (define-constant ERR-ALREADY-INITIALIZED (err u103))
 (define-constant ERR-NOT-INITIALIZED (err u104))
 (define-constant ERR-ZERO-PUBKEY (err u105))
+(define-constant ERR-RESET-NOT-AUTHORIZED (err u106))
 
 ;; Initialize the wallet with owner's public key
 ;; This can only be called once to set the initial owner
@@ -139,13 +143,43 @@
     )
 )
 
-;; Reset nonce (emergency function - in production, this would need proper access control)
-;; For testing purposes only
+;; Get the contract owner
+;;
+;; Returns:
+;; - The contract owner principal
+(define-read-only (get-contract-owner)
+    (ok (var-get contract-owner)))
+
+;; Transfer contract ownership
+;; Only the current contract owner can transfer ownership
+;;
+;; Arguments:
+;; - new-owner: The principal to transfer ownership to
 ;;
 ;; Returns:
 ;; - (ok true) on success
+;; - Error code if unauthorized
+(define-public (transfer-ownership (new-owner principal))
+    (begin
+        ;; Only allow current owner to transfer
+        (asserts! (is-eq tx-sender (var-get contract-owner)) ERR-UNAUTHORIZED)
+        ;; Set new owner
+        (var-set contract-owner new-owner)
+        (ok true)
+    )
+)
+
+;; Reset nonce (emergency function)
+;; Only the contract deployer can reset the nonce in emergency situations
+;; This is a security-critical function that should be used sparingly
+;;
+;; Returns:
+;; - (ok true) on success
+;; - Error code if unauthorized
 (define-public (reset-nonce)
     (begin
+        ;; Only allow contract deployer to reset nonce
+        (asserts! (is-eq tx-sender (var-get contract-owner)) ERR-RESET-NOT-AUTHORIZED)
         (var-set nonce u0)
         (ok true)
     )
